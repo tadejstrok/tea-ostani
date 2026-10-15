@@ -1,18 +1,6 @@
-> **RETIREMENT IN PROGRESS, started 2026-10-15.** The petition closed, and the
-> site now reads static JSON written by `freeze_petition` instead of this API.
-> `kustomize/kustomization.yaml` no longer references it, but its deployment
-> and PVC have not been deleted yet, and `api.mijic.djnd.si` still resolves —
-> that happens at the irreversible deletion step of
-> `docs/petition-erasure-runbook.md`. See
-> `docs/superpowers/specs/2026-10-15-petition-pii-erasure-design.md` for the
-> full erasure design.
->
-> The code is kept deliberately: it is the record of what was collected and how
-> it will be destroyed. Do not redeploy it.
-
 # Petition API
 
-Django REST API backing the "Mijič, odstopi takoj!" petition page. Serves the
+Django REST API backing the "Tea, ostani!" petition page. Serves the
 public count/names/messages and captures signatures + optional public messages.
 Moderation is done through the Django admin. The static `index.html` is served
 separately; this API is CORS-enabled for its origin.

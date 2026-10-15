@@ -1,14 +1,18 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: tea-ostani
-# Only the static site is applied. To run the petition API too, add
-# api-deployment.yaml, api-service.yaml, api-ingress.yaml and api-pvc.yaml
-# to resources below.
 resources:
   - static-deployment.yaml
   - static-service.yaml
   - static-ingress.yaml
+  - api-pvc.yaml
+  - api-deployment.yaml
+  - api-service.yaml
+  - api-ingress.yaml
 images:
   - name: tea-ostani
     newName: rg.fr-par.scw.cloud/djnd/tea-ostani
+    newTag: "latest"
+  - name: tea-ostani-api
+    newName: rg.fr-par.scw.cloud/djnd/tea-ostani-api
     newTag: "latest"

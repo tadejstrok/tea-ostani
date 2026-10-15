@@ -14,13 +14,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
 <style>
   :root{
-    --ink:#151417;
-    --paper:#faf9f6;
-    --paper-2:#f0eee8;
-    --red:#c81e2c;
-    --red-dark:#a1121e;
-    --line:#e2ded4;
-    --muted:#68655e;
+    --ink:#16324f;
+    --paper:#f3f8fd;
+    --paper-2:#e6f0fa;
+    --sky:#d6e8f7;
+    --accent:#3a7cc0;
+    --accent-dark:#285f99;
+    --line:#cadff0;
+    --muted:#566b80;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -40,8 +41,8 @@
 
   /* HERO */
   header.hero{
-    background:var(--ink);
-    color:#fff;
+    background:var(--sky);
+    color:var(--ink);
     text-align:center;
     position:relative;
     overflow:hidden;
@@ -66,14 +67,14 @@
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(180deg, rgba(21,20,23,0) 40%, rgba(21,20,23,0.92) 100%);
+    background:linear-gradient(180deg, rgba(214,232,247,0) 40%, rgba(214,232,247,0.92) 100%);
   }
   header.hero::after{
     content:"";
     position:absolute;
     left:0;right:0;bottom:0;
     height:5px;
-    background:var(--red);
+    background:var(--accent);
     z-index:2;
   }
   header.hero .wrap{
@@ -90,13 +91,13 @@
     font-weight:900;
     letter-spacing:-0.02em;
     text-transform:uppercase;
-    text-shadow:0 2px 20px rgba(0,0,0,0.65);
+    text-shadow:0 2px 18px rgba(255,255,255,0.7);
   }
-  .hero-title span{color:var(--red);}
+  .hero-title span{color:var(--accent);}
   .hero-subtitle{
     max-width:520px;
     margin:0 auto;
-    color:#d6d4cd;
+    color:var(--muted);
     font-size:1.2rem;
   }
 
@@ -106,7 +107,7 @@
     text-align:center;
   }
   .flip-heading{
-    color:#d6d4cd;
+    color:var(--ink);
     font-weight:800;
     font-size:1.2rem;
     text-transform:uppercase;
@@ -123,37 +124,37 @@
   .flip-group{display:flex;flex-direction:column;align-items:center;gap:10px;}
   .flip-card{
     position:relative;
-    background:#2a292e;
-    color:#fff;
+    background:#fff;
+    color:var(--ink);
     font-weight:900;
     font-variant-numeric:tabular-nums;
     font-size:clamp(1.7rem,6vw,2.5rem);
     line-height:1;
     padding:14px 12px;
     min-width:66px;
-    box-shadow:0 6px 16px rgba(0,0,0,0.45);
+    box-shadow:0 6px 16px rgba(22,50,79,0.12);
   }
   .flip-card::after{
     content:"";
     position:absolute;
     left:0;right:0;top:50%;
     height:2px;
-    background:rgba(0,0,0,0.55);
+    background:rgba(22,50,79,0.10);
   }
   .flip-label{
-    color:#9d9a93;
+    color:var(--muted);
     font-size:0.85rem;
     font-weight:700;
     text-transform:uppercase;
     letter-spacing:0.08em;
   }
   .flip-source{
-    color:#726f6a;
+    color:var(--muted);
     font-size:0.78rem;
     margin:30px 0 0;
   }
   .flip-source a{
-    color:#8a8780;
+    color:var(--muted);
     font-weight:700;
     text-decoration:underline;
   }
@@ -184,13 +185,13 @@
     max-width:520px;
     margin:14px auto 0;
     height:14px;
-    background:#e7e4da;
+    background:var(--sky);
     overflow:hidden;
     border:1px solid var(--line);
   }
   .progress-fill{
     height:100%;
-    background:linear-gradient(90deg,var(--red-dark),var(--red));
+    background:linear-gradient(90deg,var(--accent-dark),var(--accent));
     width:0%;
     transition:width 0.9s cubic-bezier(.2,.8,.2,1);
   }
@@ -244,7 +245,7 @@
     display:block;
     width:72px;
     height:6px;
-    background:var(--red);
+    background:var(--accent);
     margin:16px auto 0;
   }
 
@@ -263,7 +264,7 @@
   }
   .intro .callout{
     background:var(--paper-2);
-    border-left:6px solid var(--red);
+    border-left:6px solid var(--accent);
     padding:20px 24px;
     margin:32px 0;
   }
@@ -295,7 +296,7 @@
   .achievements-table .num{
     width:1%;
     white-space:nowrap;
-    background:var(--red);
+    background:var(--accent);
     color:#fff;
     text-align:center;
     padding:14px;
@@ -308,20 +309,59 @@
     background:#fff;
     border:1px solid var(--line);
     padding:28px;
-    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+    box-shadow:0 1px 3px rgba(22,50,79,0.06);
   }
   .sign-card h3{
     margin:0 0 18px;
     font-size:1.55rem;
     font-weight:800;
   }
-  .petition-closed{text-align:center;padding:8px 0 4px;}
-  .petition-closed h3{margin-bottom:12px;}
-  .petition-closed p{margin:0 0 10px;color:#4a463f;}
-  .petition-closed p:last-child{margin-bottom:0;font-size:0.92rem;color:#6d685f;}
+  .field{margin-bottom:14px;}
+  .field-label{
+    font-size:1rem;
+    font-weight:700;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin:22px 0 10px;
+  }
+  .field input[type=text],
+  .field input[type=email],
+  .field select,
+  .field textarea{
+    width:100%;
+    padding:12px 14px;
+    font-size:1.1rem;
+    border:1px solid var(--line);
+    background:var(--paper);
+    font-family:inherit;
+    color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:96px;}
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(58,124,192,0.15);
+  }
+  .checkbox-row{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:1rem;
+    color:var(--muted);
+    margin-bottom:12px;
+  }
+  .checkbox-row input{margin-top:3px;flex-shrink:0;}
+  .checkbox-row a{color:var(--ink);text-decoration:underline;}
+  .checkbox-row.required span::after{
+    content:" *";
+    color:var(--accent);
+  }
   .btn{
     display:inline-block;
-    background:var(--red);
+    background:var(--accent);
     color:#fff;
     border:none;
     padding:14px 30px;
@@ -333,9 +373,19 @@
     text-decoration:none;
     transition:background 0.15s ease, transform 0.05s ease;
   }
-  .btn:hover{background:var(--red-dark);}
+  .btn:hover{background:var(--accent-dark);}
   .btn:active{transform:scale(0.98);}
   .btn:disabled{opacity:0.6;cursor:not-allowed;}
+  .field-error{color:var(--accent-dark);font-size:1rem;margin:-8px 0 12px;}
+  .form-actions{display:flex;justify-content:flex-end;margin-top:8px;}
+  .success-box{
+    background:#effaf1;
+    border:1px solid #bfe6c6;
+    color:#1e5b2b;
+    padding:16px 18px;
+    font-weight:600;
+    margin-top:6px;
+  }
 
   /* SPREAD / SHARE LINK */
   #spread p{font-size:1.1rem;margin:0 0 18px;}
@@ -348,7 +398,7 @@
     min-width:0;
     padding:12px 14px;
     font-size:1rem;
-    border:1px solid #d8d5cc;
+    border:1px solid var(--line);
     background:var(--paper-2);
     color:var(--ink);
     font-family:inherit;
@@ -393,6 +443,15 @@
   }
 
   /* MESSAGE SECTION */
+  .disclaimer{
+    font-size:1rem;
+    color:var(--muted);
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    padding:12px 14px;
+    margin:4px 0 16px;
+  }
+
   .comments{
     margin-bottom:32px;
     border-bottom:1px solid var(--line);
@@ -403,46 +462,6 @@
     font-weight:800;
     margin:0 0 16px;
     color:var(--ink);
-  }
-  .recipient-chart{
-    margin-bottom:32px;
-    border-bottom:1px solid var(--line);
-    padding-bottom:24px;
-  }
-  .recipient-chart h4{
-    font-size:1.55rem;
-    font-weight:800;
-    margin:0 0 16px;
-    color:var(--ink);
-  }
-  .chart-row{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:10px;
-  }
-  .chart-label{
-    width:110px;
-    flex-shrink:0;
-    font-weight:700;
-    font-size:0.95rem;
-  }
-  .chart-bar-track{
-    flex:1;
-    background:var(--paper-2);
-    height:24px;
-    border:1px solid var(--line);
-  }
-  .chart-bar-fill{
-    height:100%;
-    background:var(--red);
-    min-width:2px;
-  }
-  .chart-count{
-    width:28px;
-    text-align:right;
-    font-weight:800;
-    flex-shrink:0;
   }
   .comment{
     background:#fff;
@@ -465,21 +484,10 @@
     flex-wrap:wrap;
   }
   .comment-number{font-weight:800;color:var(--muted);}
-  .comment-badge{
-    display:inline-block;
-    background:var(--red);
-    color:#fff;
-    font-size:0.9rem;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:0.03em;
-    padding:3px 9px;
-    margin-bottom:8px;
-  }
+  .comment-author{font-weight:800;color:var(--ink);}
   .comment-time{font-size:0.95rem;color:var(--muted);white-space:nowrap;}
   .comment-text{margin:0;font-size:1.1rem;word-wrap:break-word;}
   .comments-empty{color:var(--muted);font-size:1.05rem;font-style:italic;}
-  .comments-note{font-size:0.88rem;color:#6d685f;margin:0 0 14px;}
   .load-more-row{text-align:center;margin-top:8px;}
   .btn-outline{
     background:transparent;
@@ -504,8 +512,8 @@
 
   /* FOOTER */
   footer{
-    background:var(--ink);
-    color:#d6d4cd;
+    background:var(--sky);
+    color:var(--ink);
     text-align:center;
     padding:40px 20px;
   }
@@ -515,7 +523,7 @@
     margin:0 auto 24px;
   }
   .footer-text a{
-    color:#fff;
+    color:var(--accent-dark);
     font-weight:700;
     text-decoration:underline;
   }
@@ -524,7 +532,7 @@
     font-weight:700;
     text-transform:uppercase;
     letter-spacing:0.05em;
-    color:#9d9a93;
+    color:var(--muted);
     margin:0 0 16px;
   }
   .social-icons{
@@ -538,17 +546,17 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#2a292e;
-    color:#fff;
+    background:#fff;
+    color:var(--ink);
     transition:background 0.15s ease;
   }
   .social-icon svg{width:20px;height:20px;}
-  .social-icon:hover{background:var(--red);}
+  .social-icon:hover{background:var(--accent);color:#fff;}
   .footer-legal{
     margin:28px 0 0;
     font-size:0.85rem;
   }
-  .footer-legal a{color:#9d9a93;text-decoration:underline;}
+  .footer-legal a{color:var(--muted);text-decoration:underline;}
 </style>
 </head>
 <body>
@@ -654,29 +662,50 @@
 
     <section id="sign">
       <div class="sign-card">
-        <div class="recipient-chart" id="recipientChart">
-          <h4>Komu so namenjena sporočila</h4>
-          <div id="recipientChartRows"></div>
-        </div>
-
         <div class="comments">
-          <h4>Sporočila podpisnikov</h4>
-          <p class="comments-note">Imena podpisnikov in podpisnic so bila izbrisana.</p>
+          <h4>Sporočila podpore</h4>
           <div id="commentsList"></div>
         </div>
 
-        <div class="petition-closed">
-          <h3 id="signFormHeading">Peticija je zaključena</h3>
-          <p>
-            Zbiranje podpisov je zaključeno. Hvala vsem, ki ste peticijo
-            podpisali in delili.
-          </p>
-          <p>
-            Osebni podatki podpisnikov in podpisnic (imena, naslove elektronske pošte in
-            IP naslove) smo izbrisali. Sporočila so objavljena brez imen
-            podpisnikov in podpisnic.
-          </p>
-        </div>
+        <h3 id="signFormHeading">Dodaj svoj podpis</h3>
+        <form id="signForm" novalidate>
+          <div class="field">
+            <input type="text" id="signName" placeholder="Ime priimek" autocomplete="name">
+          </div>
+          <div class="field">
+            <input type="email" id="signEmail" placeholder="E-naslov" autocomplete="email">
+          </div>
+          <label class="checkbox-row">
+            <input type="checkbox" id="signAnonymous">
+            <span>Želim podpisati anonimno.</span>
+          </label>
+
+          <p class="field-label">Sporočilo podpore Tei</p>
+          <div class="field">
+            <textarea id="msgText" placeholder="Napiši Tei, zakaj naj ostane …" maxlength="500"></textarea>
+          </div>
+
+          <div id="signError" class="field-error" style="display:none;"></div>
+
+          <label class="checkbox-row required">
+            <input type="checkbox" id="consentRequired">
+            <span>Z oddajo se strinjaš, da <a href="https://danesjenovdan.si/" target="_blank" rel="noopener">Danes je nov dan</a> hrani in uporablja podatke za namene poročanja o številu podpornikov peticije.</span>
+          </label>
+          <label class="checkbox-row">
+            <input type="checkbox" id="consentNewsletter">
+            <span>Želim ostati obveščen_a o nadaljnih akcijah iniciative Glas ljudstva. Soglašam, da <a href="https://danesjenovdan.si/" target="_blank" rel="noopener">Danes je nov dan</a> hrani moj e-naslov in mi občasno pošlje e-novice.</span>
+          </label>
+
+          <div class="disclaimer">
+            Sovražnega govora, groženj in žaljivk ne toleriramo. Sporočila so javna
+            in moderirana — neprimerne vsebine bomo odstranili.
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn" id="signBtn">Podpiši</button>
+          </div>
+          <div class="success-box" id="signSuccess" style="display:none;">Hvala za podpis! Tea ni sama.</div>
+        </form>
       </div>
     </section>
 
@@ -735,7 +764,6 @@
     </div>
     <p class="footer-legal">
       <a href="public/Politika zasebnosti in varstva osebnih podatko_mijic-odstop.pdf" target="_blank" rel="noopener">Politika zasebnosti</a>
-      · Osebni podatki podpisnikov in podpisnic so bili izbrisani 15.&nbsp;10.&nbsp;2026.
     </p>
   </div>
 </footer>
@@ -767,13 +795,14 @@
   updateFlipClock();
   setInterval(updateFlipClock, 1000);
 
-  /* ---------- FROZEN DATA ----------
-     The petition is closed. These files are written by
-     `backend/petition/management/commands/freeze_petition.py` and served as
-     static assets next to index.html. */
+  /* ---------- API ---------- */
 
-  var DATA = "./public/data";
-  var COMMENTS_PAGE_SIZE = 20;
+  // Local preview (file:// or localhost) talks to `manage.py runserver`.
+  var IS_LOCAL = location.protocol === 'file:' ||
+    location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  var API = IS_LOCAL
+    ? "http://127.0.0.1:8000/api"
+    : "https://api.CHANGE-ME.example/api"; // TODO: set the production API host
 
   /* ---------- SIGNATURE COUNTER ---------- */
 
@@ -838,13 +867,104 @@
   }
 
   function loadCounter(){
-    fetch(DATA + '/count.json')
+    fetch(API + '/signatures/count/')
       .then(function(r){ return r.json(); })
       .then(function(data){ renderCounter(data.count, data.petition_started_at, data.milestones); })
       .catch(function(){ /* leave counter at 0 on network error */ });
   }
 
   loadCounter();
+
+  /* ---------- SIGN FORM ---------- */
+
+  var signForm = document.getElementById('signForm');
+  signForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('signName').value.trim();
+    var email = document.getElementById('signEmail').value.trim();
+    var consent = document.getElementById('consentRequired').checked;
+    var anonymous = document.getElementById('signAnonymous').checked;
+    var errorBox = document.getElementById('signError');
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    var recipient = 'Tea Košir'; // every message is addressed to her
+    var text = document.getElementById('msgText').value.trim();
+
+    if(!name || !email || !emailRe.test(email) || !consent){
+      errorBox.style.display = 'block';
+      errorBox.textContent = !consent
+        ? 'Za podpis moraš potrditi soglasje za obdelavo podatkov.'
+        : 'Prosimo, izpolni ime in veljaven e-naslov.';
+      return;
+    }
+    if(text.length > 500){
+      errorBox.style.display = 'block';
+      errorBox.textContent = 'Sporočilo je predolgo (največ 500 znakov).';
+      return;
+    }
+    errorBox.style.display = 'none';
+
+    var payload = {
+      name: name,
+      email: email,
+      newsletter: document.getElementById('consentNewsletter').checked,
+      anonymous: anonymous, // already read from #signAnonymous above
+      consent: consent      // already read from #consentRequired above
+    };
+    if(text){
+      payload.message = { recipient: recipient, text: text };
+    }
+
+    var submitBtn = document.getElementById('signBtn');
+    submitBtn.disabled = true;
+
+    fetch(API + '/signatures/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function(r){
+        if(r.status === 201) return r.json();
+        if(r.status === 400){
+          return r.json().then(function(errors){ throw errors; }); // field errors
+        }
+        if(r.status === 429){ throw { _rate: true }; } // throttled (too many submits)
+        throw { _server: true }; // unexpected HTTP status (5xx, etc.)
+      })
+      .then(function(){
+        // Success — signature stored (or silently deduped). Lock the form.
+        signForm.querySelectorAll('input, select, textarea, button')
+          .forEach(function(el){ el.disabled = true; });
+        document.getElementById('signSuccess').style.display = 'block';
+        loadCounter();   // refresh the total
+        loadComments();  // show the new message (if it was published immediately)
+      })
+      .catch(function(err){
+        submitBtn.disabled = false; // let them retry
+        errorBox.style.display = 'block';
+        if(err && err._rate){
+          errorBox.textContent = 'Preveč poskusov. Poskusi znova čez nekaj minut.';
+        }else if(err && err._server){
+          errorBox.textContent = 'Napaka na strežniku. Poskusi znova čez nekaj minut.';
+        }else if(err instanceof TypeError){
+          // fetch() itself rejected — offline, DNS failure, or blocked by CORS.
+          errorBox.textContent = 'Napaka pri povezavi. Preveri internetno povezavo in poskusi znova.';
+        }else{
+          // Field errors from the API (consent/email/name/message) — surface the
+          // actual reason instead of a vague message, so real issues are visible.
+          var fieldMessages = [];
+          if(err && typeof err === 'object'){
+            Object.keys(err).forEach(function(field){
+              var value = err[field];
+              if(Array.isArray(value)){ fieldMessages = fieldMessages.concat(value); }
+            });
+          }
+          errorBox.textContent = fieldMessages.length
+            ? fieldMessages.join(' ')
+            : 'Prosimo, preveri vnesene podatke in poskusi znova.';
+        }
+      });
+  });
 
   /* ---------- SPREAD / SHARE LINK ---------- */
 
@@ -899,42 +1019,48 @@
   });
 
   /* ---------- MESSAGE / COMMENTS ----------
-     The petition is closed: messages are read once from the frozen
-     messages.json (written at freeze time), not fetched live. Moderation
-     happened before the freeze, so withheld items simply are not in the
-     file — there is nothing left to filter here. Still rendered with
-     textContent throughout, since the text is user-submitted. */
+     Messages are fetched from the backend (GET /api/messages/) and rendered
+     with textContent. Moderation happens server-side — held items simply
+     never appear in the API response. */
 
-  var commentsState = { totalCount: 0, all: [], shown: 0 };
+  var commentsState = { totalCount: 0, items: [], nextUrl: null };
 
   function loadComments(){
-    commentsState = { totalCount: 0, all: [], shown: 0 };
-    fetch(DATA + '/messages.json')
+    commentsState = { totalCount: 0, items: [], nextUrl: null };
+    fetch(API + '/messages/')
       .then(function(r){ return r.json(); })
       .then(function(data){
-        var rows = (data && data.results) || [];
-        commentsState.totalCount = rows.length;
-        commentsState.all = rows;
-        commentsState.shown = Math.min(COMMENTS_PAGE_SIZE, rows.length);
+        commentsState.totalCount = data.count;
+        commentsState.items = data.results;
+        commentsState.nextUrl = data.next;
         renderComments();
       })
       .catch(function(){ renderComments(); });
   }
 
   function loadMoreComments(){
-    // All messages are already in memory — paging is a slice, not a fetch.
-    commentsState.shown = Math.min(
-      commentsState.shown + COMMENTS_PAGE_SIZE,
-      commentsState.all.length
-    );
-    renderComments();
+    if(!commentsState.nextUrl) return;
+    var btn = document.getElementById('loadMoreComments');
+    btn.disabled = true;
+    btn.textContent = 'Nalagam …';
+    fetch(commentsState.nextUrl)
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        commentsState.items = commentsState.items.concat(data.results);
+        commentsState.nextUrl = data.next;
+        renderComments();
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Naloži več';
+      });
   }
 
   function renderComments(){
     var list = document.getElementById('commentsList');
     list.innerHTML = '';
 
-    if(commentsState.all.length === 0){
+    if(commentsState.items.length === 0){
       var empty = document.createElement('p');
       empty.className = 'comments-empty';
       empty.textContent = 'Bodi prvi_a, ki napiše sporočilo.';
@@ -942,7 +1068,7 @@
       return;
     }
 
-    commentsState.all.slice(0, commentsState.shown).forEach(function(c, index){
+    commentsState.items.forEach(function(c, index){
       var item = document.createElement('div');
       item.className = 'comment';
 
@@ -957,6 +1083,11 @@
       number.textContent = (commentsState.totalCount - index) + '.'; // newest entry gets the highest number
       left.appendChild(number);
 
+      var author = document.createElement('span');
+      author.className = 'comment-author';
+      author.textContent = c.signer_name || 'anonimen podpisnik'; // textContent — never innerHTML
+      left.appendChild(author);
+
       meta.appendChild(left);
 
       var time = document.createElement('span');
@@ -966,11 +1097,6 @@
 
       item.appendChild(meta);
 
-      var badge = document.createElement('span');
-      badge.className = 'comment-badge';
-      badge.textContent = c.recipient; // textContent — never innerHTML — user-submitted
-      item.appendChild(badge);
-
       var text = document.createElement('p');
       text.className = 'comment-text';
       text.textContent = c.text; // textContent — never innerHTML — for user-submitted text
@@ -979,7 +1105,7 @@
       list.appendChild(item);
     });
 
-    if(commentsState.shown < commentsState.all.length){
+    if(commentsState.nextUrl){
       var row = document.createElement('div');
       row.className = 'load-more-row';
 
@@ -997,57 +1123,6 @@
 
   loadComments();
 
-  /* ---------- RECIPIENT CHART ---------- */
-
-  function loadRecipientChart(){
-    fetch(DATA + '/recipient-stats.json')
-      .then(function(r){ return r.json(); })
-      .then(renderRecipientChart)
-      .catch(function(){ renderRecipientChart([]); });
-  }
-
-  function renderRecipientChart(rows){
-    var container = document.getElementById('recipientChartRows');
-    container.innerHTML = '';
-
-    if(!rows || rows.length === 0){
-      var empty = document.createElement('p');
-      empty.className = 'comments-empty';
-      empty.textContent = 'Še ni sporočil za prikaz.';
-      container.appendChild(empty);
-      return;
-    }
-
-    var max = rows.reduce(function(m, row){ return Math.max(m, row.count); }, 0);
-
-    rows.forEach(function(row){
-      var chartRow = document.createElement('div');
-      chartRow.className = 'chart-row';
-
-      var label = document.createElement('span');
-      label.className = 'chart-label';
-      label.textContent = row.recipient; // textContent — recipient can be free-text
-      chartRow.appendChild(label);
-
-      var track = document.createElement('div');
-      track.className = 'chart-bar-track';
-
-      var fill = document.createElement('div');
-      fill.className = 'chart-bar-fill';
-      fill.style.width = (max > 0 ? (row.count / max * 100) : 0) + '%';
-      track.appendChild(fill);
-      chartRow.appendChild(track);
-
-      var count = document.createElement('span');
-      count.className = 'chart-count';
-      count.textContent = row.count;
-      chartRow.appendChild(count);
-
-      container.appendChild(chartRow);
-    });
-  }
-
-  loadRecipientChart();
 
 })();
 </script>
