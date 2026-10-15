@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tea-ostani-static
+  labels:
+    app: tea-ostani-static
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tea-ostani-static
+  template:
+    metadata:
+      labels:
+        app: tea-ostani-static
+    spec:
+      containers:
+        - name: static
+          image: tea-ostani
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP

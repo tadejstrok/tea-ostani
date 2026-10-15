@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tea-ostani-static
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    traefik.ingress.kubernetes.io/router.middlewares: |
+      traefik-redirect-to-https@kubernetescrd
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - CHANGE-ME.example
+        - CHANGE-ME-ALT.example
+      secretName: tea-ostani-tls
+  rules:
+    - host: CHANGE-ME.example
+      http: &http_paths
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tea-ostani-static
+                port:
+                  number: 80
+    - host: CHANGE-ME-ALT.example
+      http: *http_paths

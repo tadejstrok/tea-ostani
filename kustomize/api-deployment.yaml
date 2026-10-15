@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tea-ostani-api
+  labels:
+    app: tea-ostani-api
+spec:
+  replicas: 1
+  # SQLite is single-writer on a ReadWriteOnce volume: never run two pods against
+  # the same DB, not even briefly during a rollout.
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: tea-ostani-api
+  template:
+    metadata:
+      labels:
+        app: tea-ostani-api
+    spec:
+      securityContext:
+        fsGroup: 1000
+      initContainers:
+        - name: migrate
+          image: tea-ostani-api
+          command:
+            - python
+            - manage.py
+            - migrate
+            - --noinput
+          envFrom:
+            - secretRef:
+                name: tea-ostani-api-secrets
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 50m
+            limits:
+              memory: 256Mi
+              cpu: 500m
+      containers:
+        - name: api
+          image: tea-ostani-api
+          command:
+            - gunicorn
+            - config.wsgi:application
+            - -b
+            - 0.0.0.0:8000
+          ports:
+            - name: http
+              containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: tea-ostani-api-secrets
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+          resources:
+            requests:
+              memory: 128Mi
+              cpu: 50m
+            limits:
+              memory: 512Mi
+              cpu: 500m
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: tea-ostani-api-data

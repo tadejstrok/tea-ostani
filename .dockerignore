@@ -1,0 +1,8 @@
+.git
+backend
+docs
+kustomize
+node_modules
+*.md
+Dockerfile
+.dockerignore

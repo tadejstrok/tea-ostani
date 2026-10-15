@@ -1,0 +1,21 @@
+.DS_Store
+Thumbs.db
+
+# muki added these
+Dockerfile*
+docker-compose*
+lvenv
+
+# but track the deployment Dockerfiles
+!/Dockerfile
+!/backend/Dockerfile
+
+# hide secrets
+kustomize/secrets.yaml
+
+# newsletter export — personal data, never commit
+newsletter-emails.csv
+
+# message PII scan report — holds emails, phone numbers, recipients and
+# signed names of every scan hit; never commit
+message-pii-report.csv

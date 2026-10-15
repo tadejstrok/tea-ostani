@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mijič odstopi! - Peticija</title>
+<meta name="description" content="Podpiši peticijo in pozovi poslanca Mijiča k odstopu.">
+<meta property="og:title" content="Mijič odstopi! - Peticija">
+<meta property="og:description" content="Podpišite peticijo in pokažite, da je ravnanje poslanca Mijiča povsem nesprejemljivo, zavržno in neprimerno za opravljanje kakršnekoli politične funkcije!">
+<meta property="og:image" content="public/mijic-odstop.jpg">
+<link rel="icon" type="image/x-icon" href="public/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
+<style>
+  :root{
+    --ink:#151417;
+    --paper:#faf9f6;
+    --paper-2:#f0eee8;
+    --red:#c81e2c;
+    --red-dark:#a1121e;
+    --line:#e2ded4;
+    --muted:#68655e;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    font-size:18px;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 20px;}
+  .wrap-wide{max-width:840px;margin:0 auto;padding:0 20px;}
+
+  /* HERO */
+  header.hero{
+    background:var(--ink);
+    color:#fff;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    padding-bottom:48px;
+  }
+  .hero-image-wrap{
+    position:relative;
+    width:100%;
+    aspect-ratio:16/10;
+    max-height:60vh;
+    min-height:280px;
+    overflow:hidden;
+  }
+  .hero-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .hero-image-wrap::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(21,20,23,0) 40%, rgba(21,20,23,0.92) 100%);
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:0;
+    height:5px;
+    background:var(--red);
+    z-index:2;
+  }
+  header.hero .wrap{
+    padding-top:32px;
+  }
+  .hero-title{
+    position:absolute;
+    left:0;right:0;bottom:80px;
+    z-index:1;
+    margin:0;
+    padding:0 20px;
+    font-size:clamp(3rem,10vw,5.6rem);
+    line-height:1.0;
+    font-weight:900;
+    letter-spacing:-0.02em;
+    text-transform:uppercase;
+    text-shadow:0 2px 20px rgba(0,0,0,0.65);
+  }
+  .hero-title span{color:var(--red);}
+  .hero-subtitle{
+    max-width:520px;
+    margin:0 auto;
+    color:#d6d4cd;
+    font-size:1.2rem;
+  }
+
+  /* AFFAIR FLIP CLOCK */
+  .flip-block{
+    margin-top:32px;
+    text-align:center;
+  }
+  .flip-heading{
+    color:#d6d4cd;
+    font-weight:800;
+    font-size:1.2rem;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    margin:0 0 30px;
+  }
+  .flip-clock{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .flip-group{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .flip-card{
+    position:relative;
+    background:#2a292e;
+    color:#fff;
+    font-weight:900;
+    font-variant-numeric:tabular-nums;
+    font-size:clamp(1.7rem,6vw,2.5rem);
+    line-height:1;
+    padding:14px 12px;
+    min-width:66px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.45);
+  }
+  .flip-card::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;top:50%;
+    height:2px;
+    background:rgba(0,0,0,0.55);
+  }
+  .flip-label{
+    color:#9d9a93;
+    font-size:0.85rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .flip-source{
+    color:#726f6a;
+    font-size:0.78rem;
+    margin:30px 0 0;
+  }
+  .flip-source a{
+    color:#8a8780;
+    font-weight:700;
+    text-decoration:underline;
+  }
+
+  /* COUNTER */
+  .counter-wrap{
+    background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+    padding:22px 20px 32px;
+  }
+  .counter-num{
+    text-align:center;
+    font-weight:900;
+    font-size:clamp(1.9rem,5.5vw,2.6rem);
+    letter-spacing:-0.01em;
+  }
+  .counter-num .goal{
+    font-weight:700;
+    color:var(--muted);
+    font-size:0.65em;
+    display:block;
+    margin-top:4px;
+    letter-spacing:0;
+    text-transform:uppercase;
+  }
+  .progress-track{
+    position:relative;
+    max-width:520px;
+    margin:14px auto 0;
+    height:14px;
+    background:#e7e4da;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--red-dark),var(--red));
+    width:0%;
+    transition:width 0.9s cubic-bezier(.2,.8,.2,1);
+  }
+  .progress-milestone{
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:var(--ink);
+    z-index:2;
+  }
+  .progress-milestone-label{
+    max-width:520px;
+    margin:10px auto 0;
+    text-align:center;
+    font-size:0.85rem;
+    font-weight:700;
+    color:var(--muted);
+  }
+  .petition-started{
+    max-width:520px;
+    margin:8px auto 0;
+    text-align:center;
+    font-size:0.85rem;
+    font-weight:700;
+    color:var(--muted);
+  }
+
+  /* GENERIC SECTIONS */
+  main{padding:44px 0 48px;}
+  section{margin-bottom:56px;}
+  #volunteer{margin-bottom:24px;}
+  h2.section-title{
+    font-size:1.6rem;
+    font-weight:800;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  h2.mega-title{
+    text-align:center;
+    font-size:clamp(2.1rem,5.5vw,3rem);
+    font-weight:900;
+    letter-spacing:-0.02em;
+    text-transform:uppercase;
+    margin:0 0 40px;
+    padding-top:8px;
+    position:relative;
+  }
+  h2.mega-title::after{
+    content:"";
+    display:block;
+    width:72px;
+    height:6px;
+    background:var(--red);
+    margin:16px auto 0;
+  }
+
+  .intro p{font-size:1.2rem;}
+  .intro-bold{font-weight:700;}
+  .post-counter-text{
+    font-size:1.1rem;
+    color:var(--muted);
+    text-align:center;
+    max-width:640px;
+    margin:24px auto 0;
+  }
+  .counter-cta{
+    text-align:center;
+    margin-top:24px;
+  }
+  .intro .callout{
+    background:var(--paper-2);
+    border-left:6px solid var(--red);
+    padding:20px 24px;
+    margin:32px 0;
+  }
+  .intro .callout p{
+    font-size:1.3rem;
+    font-weight:700;
+    margin:0;
+  }
+  .intro .callout p + p{margin-top:14px;}
+  .intro-list-heading{
+    font-size:1.2rem;
+    font-weight:800;
+    margin:28px 0 0;
+  }
+  .achievements-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0 0;
+    border:2px solid var(--ink);
+  }
+  .achievements-table td{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+    font-size:1.1rem;
+    vertical-align:top;
+  }
+  .achievements-table tr:last-child td{border-bottom:none;}
+  .achievements-table tr:nth-child(even){background:var(--paper-2);}
+  .achievements-table .num{
+    width:1%;
+    white-space:nowrap;
+    background:var(--red);
+    color:#fff;
+    text-align:center;
+    padding:14px;
+  }
+  .achievements-table .num svg{display:block;width:26px;height:26px;}
+
+  /* SIGN CARD */
+  #sign{margin-top:32px;}
+  .sign-card{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:28px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  }
+  .sign-card h3{
+    margin:0 0 18px;
+    font-size:1.55rem;
+    font-weight:800;
+  }
+  .petition-closed{text-align:center;padding:8px 0 4px;}
+  .petition-closed h3{margin-bottom:12px;}
+  .petition-closed p{margin:0 0 10px;color:#4a463f;}
+  .petition-closed p:last-child{margin-bottom:0;font-size:0.92rem;color:#6d685f;}
+  .btn{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    border:none;
+    padding:14px 30px;
+    font-size:1.1rem;
+    font-weight:700;
+    cursor:pointer;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:background 0.15s ease, transform 0.05s ease;
+  }
+  .btn:hover{background:var(--red-dark);}
+  .btn:active{transform:scale(0.98);}
+  .btn:disabled{opacity:0.6;cursor:not-allowed;}
+
+  /* SPREAD / SHARE LINK */
+  #spread p{font-size:1.1rem;margin:0 0 18px;}
+  .url-copy{
+    display:flex;
+    gap:10px;
+  }
+  .url-copy input{
+    flex:1;
+    min-width:0;
+    padding:12px 14px;
+    font-size:1rem;
+    border:1px solid #d8d5cc;
+    background:var(--paper-2);
+    color:var(--ink);
+    font-family:inherit;
+  }
+  .url-copy .btn{flex-shrink:0;}
+  @media (max-width:480px){
+    .url-copy{flex-direction:column;}
+  }
+
+  /* SHARE GRID */
+  .share-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+  }
+  @media (max-width:640px){
+    .share-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:380px){
+    .share-grid{grid-template-columns:1fr;}
+  }
+  .share-item{
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:#fff;
+  }
+  .share-item img{width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .share-actions{
+    display:flex;
+    gap:8px;
+    padding:10px;
+  }
+  .share-actions a{
+    flex:1;
+    text-align:center;
+    padding:10px 8px;
+    font-size:1rem;
+    font-weight:700;
+    text-decoration:none;
+    background:var(--ink);
+    color:#fff;
+  }
+
+  /* MESSAGE SECTION */
+  .comments{
+    margin-bottom:32px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:24px;
+  }
+  .comments h4{
+    font-size:1.55rem;
+    font-weight:800;
+    margin:0 0 16px;
+    color:var(--ink);
+  }
+  .recipient-chart{
+    margin-bottom:32px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:24px;
+  }
+  .recipient-chart h4{
+    font-size:1.55rem;
+    font-weight:800;
+    margin:0 0 16px;
+    color:var(--ink);
+  }
+  .chart-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+  }
+  .chart-label{
+    width:110px;
+    flex-shrink:0;
+    font-weight:700;
+    font-size:0.95rem;
+  }
+  .chart-bar-track{
+    flex:1;
+    background:var(--paper-2);
+    height:24px;
+    border:1px solid var(--line);
+  }
+  .chart-bar-fill{
+    height:100%;
+    background:var(--red);
+    min-width:2px;
+  }
+  .chart-count{
+    width:28px;
+    text-align:right;
+    font-weight:800;
+    flex-shrink:0;
+  }
+  .comment{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:14px 16px;
+    margin-bottom:12px;
+  }
+  .comment-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+    margin-bottom:6px;
+    flex-wrap:wrap;
+  }
+  .comment-left{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .comment-number{font-weight:800;color:var(--muted);}
+  .comment-badge{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    font-size:0.9rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    padding:3px 9px;
+    margin-bottom:8px;
+  }
+  .comment-time{font-size:0.95rem;color:var(--muted);white-space:nowrap;}
+  .comment-text{margin:0;font-size:1.1rem;word-wrap:break-word;}
+  .comments-empty{color:var(--muted);font-size:1.05rem;font-style:italic;}
+  .comments-note{font-size:0.88rem;color:#6d685f;margin:0 0 14px;}
+  .load-more-row{text-align:center;margin-top:8px;}
+  .btn-outline{
+    background:transparent;
+    color:var(--ink);
+    border:2px solid var(--ink);
+    padding:12px 28px;
+    font-size:1rem;
+  }
+  .btn-outline:hover{background:var(--ink);color:#fff;}
+
+  .volunteer-card{
+    text-align:center;
+  }
+  .volunteer-card h3{
+    margin:0 0 10px;
+  }
+  .volunteer-card p{
+    margin:0 0 20px;
+    color:var(--muted);
+    font-size:1.1rem;
+  }
+
+  /* FOOTER */
+  footer{
+    background:var(--ink);
+    color:#d6d4cd;
+    text-align:center;
+    padding:40px 20px;
+  }
+  .footer-text{
+    font-size:1rem;
+    max-width:560px;
+    margin:0 auto 24px;
+  }
+  .footer-text a{
+    color:#fff;
+    font-weight:700;
+    text-decoration:underline;
+  }
+  .footer-follow{
+    font-size:0.95rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:#9d9a93;
+    margin:0 0 16px;
+  }
+  .social-icons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+  }
+  .social-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#2a292e;
+    color:#fff;
+    transition:background 0.15s ease;
+  }
+  .social-icon svg{width:20px;height:20px;}
+  .social-icon:hover{background:var(--red);}
+  .footer-legal{
+    margin:28px 0 0;
+    font-size:0.85rem;
+  }
+  .footer-legal a{color:#9d9a93;text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-image-wrap">
+    <img class="hero-image" src="public/Mijič-odstop-header.jpg" alt="Mijič, odstopi">
+    <h1 class="hero-title">Mijič, <span>odstopi</span> takoj!</h1>
+  </div>
+  <div class="wrap">
+    <p class="hero-subtitle">Podpišite peticijo in pokažite, da je ravnanje poslanca Mijiča povsem nesprejemljivo, zavržno in neprimerno za opravljanje kakršnekoli politične funkcije!</p>
+
+    <div class="flip-block">
+      <p class="flip-heading">Poslanskega stolčka se oklepa že:</p>
+      <div class="flip-clock">
+        <div class="flip-group">
+          <div class="flip-card"><span id="flipDays">0</span></div>
+          <div class="flip-label">dni</div>
+        </div>
+        <div class="flip-group">
+          <div class="flip-card"><span id="flipHours">00</span></div>
+          <div class="flip-label">ur</div>
+        </div>
+        <div class="flip-group">
+          <div class="flip-card"><span id="flipMinutes">00</span></div>
+          <div class="flip-label">minut</div>
+        </div>
+        <div class="flip-group">
+          <div class="flip-card"><span id="flipSeconds">00</span></div>
+          <div class="flip-label">sekund</div>
+        </div>
+      </div>
+      <p class="flip-source">
+        Afera izbruhnila 28. maja 2026.
+        <a href="https://necenzurirano.si/clanek/preiskave/boris-mijic-poslanec-resnica-davcni-dolg-podjetje-progros-upnik-goljufija-1902270" target="_blank" rel="noopener">Vir</a>
+      </p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="intro">
+      <p class="intro-bold">
+        Boris Mijič, novopečeni poslanec, član parlamentarne stranke z zavajajočim imenom Resni.ca, se je v
+        svoji kratki parlamentarni karieri, ki jo je deloma preživel na dopustu, izkazal za enega od najbolj nepoštenih
+        in lažnivih politikov v zgodovini naše države.
+      </p>
+      <p>
+        Prepričuje nas, da je podjetje prevzel, da bi ga saniral, brez kakršnekoli odgovornosti za težave, pa čeprav
+        gre za družinsko podjetje, v katerem je bil do takrat prokurist. Trdi, da delavcev iz zavarovanja ni na
+        skrivaj odjavil on, ampak njegova mama, seveda brez njegove vednosti. In ko smo končno dočakali nekakšno
+        opravičilo, so bili za vse krivi drugi: neplačniki in zakonodaja.
+      </p>
+      <p>
+        Za povrhu Mijič sploh nima ustrezne in
+        zahtevane izobrazbe, o čemer je lagal sodelavcem in naročnikom, pa tudi vsem volivkam in volivcem. Namesto,
+        da bi začel poplačevati dolgove do delavcev, je raje odšel na dopust, svoje podjetje Progros pa je predal
+        SDS operativcu za izogibanje davkov in dolgov Roku Snežiču.
+      </p>
+      <div class="callout">
+        <p>
+          Boris Mijič z vsakim naslednjim dejanjem in razkritjem dokazuje, da podcenjuje volivce in volivke, da nam
+          laže v obraz, da delavce obravnava kot ničvredne predmete in se s svojim sodelovanjem z Rokom Snežičem
+          posmehuje delavskim pravicam in pljuva na pravno državo.
+        </p>
+        <p>
+          Tak človek nikakor ni primeren za predstavnika
+          ljudstva v Državnem zboru. Zato zahtevamo, da nemudoma odstopi z mesta poslanca!
+        </p>
+      </div>
+      <p class="intro-list-heading">Kratek pregled dosežkov Borisa Mijiča:</p>
+      <table class="achievements-table">
+        <tbody>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><text x="12" y="16" text-anchor="middle" font-size="11" fill="currentColor" stroke="none" font-weight="700">&#8364;</text></svg></td><td>Davčni dolg med 30.000 in 50.000 EUR</td></tr>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg></td><td>41.000 EUR dolga do zaposlenih in nekdanjih zaposlenih</td></tr>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l3.2-.8L18.5 7.9a1.7 1.7 0 0 0 0-2.4l-.9-.9a1.7 1.7 0 0 0-2.4 0L4.8 15.9 4 20z"/><path d="M13.5 6.2l3.1 3.1"/></svg></td><td>Ponarejanje podpisov zaposlenih na odpovedih za odjavo iz zavarovanja</td></tr>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17"/><path d="M9 8h1.2M13.8 8H15M9 12h1.2M13.8 12H15M9 16h1.2M13.8 16H15"/></svg></td><td>Podjetje Progros pred stečajem, delo prevzame ženino podjetje</td></tr>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5-10 4.5-10-4.5z"/><path d="M6.5 11.6v4.4c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-4.4"/><path d="M20 10v5.5"/></svg></td><td>Laž o diplomi na Fakulteti za gradbeništvo in geodezijo</td></tr>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-5 0-8.5 3-8.5 6.5 0 2 1 3.3 2 4.3.6.6 1 1.5.9 2.4-.1 1 .7 1.8 1.7 1.6.8-.2 1.3-.9 1.9-.9s1.1.7 1.9.9c1 .2 1.8-.6 1.7-1.6-.1-.9.3-1.8.9-2.4 1-1 2-2.3 2-4.3C20.5 6 17 3 12 3z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/><path d="M9.5 13.5c.7.6 1.6.9 2.5.9s1.8-.3 2.5-.9"/></svg></td><td>Nastavi slamnatega direktorja podjetja Progros</td></tr>
+          <tr><td class="num"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-4 9 4-9 4-9-4z"/><path d="M3 8v9l9 4 9-4V8"/><path d="M12 12v9"/></svg></td><td>Progros z dolgovi vred podari Roku Snežiču, doktorju davčnih utaj</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <div class="counter-wrap">
+    <div class="counter-num">
+      <span id="signatureCount">0</span>
+      <span class="goal">ZBRANIH PODPISOV</span>
+    </div>
+    <p class="petition-started" id="petitionStarted" style="display:none;"></p>
+    <div class="progress-track" id="progressTrack">
+      <div class="progress-fill" id="progressFill"></div>
+      <div id="progressMilestones"></div>
+    </div>
+    <div id="progressMilestoneLabels"></div>
+    <p class="post-counter-text">
+      Podpisniki in podpisnice od strank Resni.ca, SDS, NSi in Demokrati zahtevamo, da nemudoma ustavijo finačno,
+      organizacijsko ter medijsko podporo Mijiču ter da z vsemi močmi zahtevajo in tudi dosežejo njegov odstop.
+      V nasprotnem primeru bodo stranke in njihovi voditelji jasno dokazali, da je zanje en podložen glas v
+      parlamentu vreden več od najosnovnejših temeljev demokracije in da so zanj pripravljeno dokončno razvrednotiti
+      poslansko funkcijo ter zavreči ugled Državnega zbora.
+    </p>
+    <p class="post-counter-text">
+      Volivci in volivke tega ne bomo pozabili - ne Mijiču, ne Stevanoviću, ne Logarju, ne Vrtovcu in ne Janši!
+    </p>
+    <div class="counter-cta">
+      <a class="btn" href="#signFormHeading">Podpiši</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <section id="sign">
+      <div class="sign-card">
+        <div class="recipient-chart" id="recipientChart">
+          <h4>Komu so namenjena sporočila</h4>
+          <div id="recipientChartRows"></div>
+        </div>
+
+        <div class="comments">
+          <h4>Sporočila podpisnikov</h4>
+          <p class="comments-note">Imena podpisnikov in podpisnic so bila izbrisana.</p>
+          <div id="commentsList"></div>
+        </div>
+
+        <div class="petition-closed">
+          <h3 id="signFormHeading">Peticija je zaključena</h3>
+          <p>
+            Zbiranje podpisov je zaključeno. Hvala vsem, ki ste peticijo
+            podpisali in delili.
+          </p>
+          <p>
+            Osebni podatki podpisnikov in podpisnic (imena, naslove elektronske pošte in
+            IP naslove) smo izbrisali. Sporočila so objavljena brez imen
+            podpisnikov in podpisnic.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <h2 class="mega-title">Kaj še lahko storiš?</h2>
+
+    <section id="spread">
+      <h2 class="section-title">Razširi peticijo</h2>
+      <p>Deli peticijo z družino in prijatelji. Objavi povezavo na družabnih omrežjih. Poskrbi, da doseže čimveč ljudi.</p>
+      <div class="url-copy">
+        <input type="text" id="petitionUrl" readonly>
+        <button type="button" class="btn" id="copyUrlBtn">Kopiraj</button>
+      </div>
+    </section>
+
+    <section id="share">
+      <h2 class="section-title">Deli grafike</h2>
+      <div class="share-grid" id="shareGrid"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footer-text">
+      Peticijo je zagnala civilna iniciativa
+      <a href="https://glas-ljudstva.si/" target="_blank" rel="noopener">Glas ljudstva</a>
+      ob podpori širše civilne družbe in aktivnih državljanov.
+    </p>
+    <p class="footer-follow">Sledi Glas ljudstva:</p>
+    <div class="social-icons">
+      <a class="social-icon" href="https://www.facebook.com/glasljudstvazavse" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M14 8h-1.5A2.5 2.5 0 0 0 10 10.5V12H8.5v2.5H10V19h2.5v-6.5H14l.3-2.5h-1.8v-1a.5.5 0 0 1 .5-.5H14V8z" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://www.instagram.com/glasljudstva/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="4"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="16.6" cy="7.4" r="0.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="https://x.com/glasljudstva" target="_blank" rel="noopener" aria-label="X">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 5l14 14M19 5L5 19"/>
+        </svg>
+      </a>
+      <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 4v10.5a3.5 3.5 0 1 1-3.5-3.5"/>
+          <path d="M13 4c.6 2.4 2.4 4.2 4.5 4.6"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-legal">
+      <a href="public/Politika zasebnosti in varstva osebnih podatko_mijic-odstop.pdf" target="_blank" rel="noopener">Politika zasebnosti</a>
+      · Osebni podatki podpisnikov in podpisnic so bili izbrisani 15.&nbsp;10.&nbsp;2026.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+
+  /* ---------- AFFAIR FLIP CLOCK ---------- */
+
+  var AFFAIR_START = new Date(2026, 4, 28, 0, 0, 0); // 28. maj 2026
+
+  function updateFlipClock(){
+    var diffMs = Date.now() - AFFAIR_START.getTime();
+    if(diffMs < 0) diffMs = 0;
+    var totalSeconds = Math.floor(diffMs / 1000);
+    var days = Math.floor(totalSeconds / (60 * 60 * 24));
+    var hours = Math.floor((totalSeconds % (60 * 60 * 24)) / 3600);
+    var minutes = Math.floor((totalSeconds % 3600) / 60);
+    var seconds = totalSeconds % 60;
+
+    document.getElementById('flipDays').textContent = String(days);
+    document.getElementById('flipHours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('flipMinutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('flipSeconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateFlipClock();
+  setInterval(updateFlipClock, 1000);
+
+  /* ---------- FROZEN DATA ----------
+     The petition is closed. These files are written by
+     `backend/petition/management/commands/freeze_petition.py` and served as
+     static assets next to index.html. */
+
+  var DATA = "./public/data";
+  var COMMENTS_PAGE_SIZE = 20;
+
+  /* ---------- SIGNATURE COUNTER ---------- */
+
+  var GOALS = [3000, 7000, 12000, 18000];
+  var GOAL_NOMINATIVE = ['Prvi', 'Drugi', 'Tretji', 'Četrti'];
+
+  function formatDateTime(iso){
+    var d = new Date(iso);
+    var date = d.toLocaleDateString('sl-SI', { day: 'numeric', month: 'long', year: 'numeric' });
+    var time = d.toLocaleTimeString('sl-SI', { hour: '2-digit', minute: '2-digit' });
+    return date + ' ob ' + time;
+  }
+
+  function formatMilestoneDateTime(iso){
+    var d = new Date(iso);
+    var day = String(d.getDate()).padStart(2, '0');
+    var month = String(d.getMonth() + 1).padStart(2, '0');
+    var year = d.getFullYear();
+    var hours = String(d.getHours()).padStart(2, '0');
+    var minutes = String(d.getMinutes()).padStart(2, '0');
+    return day + '. ' + month + '. ' + year + ', ' + hours + ':' + minutes;
+  }
+
+  function renderCounter(count, petitionStartedAt, milestones){
+    var scaleMax = GOALS[GOALS.length - 1];
+    for(var i = 0; i < GOALS.length; i++){
+      if(count < GOALS[i]){ scaleMax = GOALS[i]; break; }
+    }
+    var pct = Math.min(100, (count / scaleMax) * 100);
+
+    document.getElementById('signatureCount').textContent = count.toLocaleString('sl-SI');
+    document.getElementById('progressFill').style.width = pct + '%';
+
+    var startedEl = document.getElementById('petitionStarted');
+    if(petitionStartedAt){
+      startedEl.textContent = 'Prvi dan peticije: ' + formatDateTime(petitionStartedAt) + '.';
+      startedEl.style.display = 'block';
+    }else{
+      startedEl.style.display = 'none';
+    }
+
+    var tickContainer = document.getElementById('progressMilestones');
+    var labelContainer = document.getElementById('progressMilestoneLabels');
+    tickContainer.innerHTML = '';
+    labelContainer.innerHTML = '';
+
+    (milestones || []).forEach(function(m, idx){
+      if(!m.reached_at) return;
+
+      var tickPct = (m.goal / scaleMax) * 100;
+      var tick = document.createElement('div');
+      tick.className = 'progress-milestone';
+      tick.style.left = 'calc(' + tickPct + '% - 1.5px)';
+      tickContainer.appendChild(tick);
+
+      var label = document.createElement('p');
+      label.className = 'progress-milestone-label';
+      label.textContent = formatMilestoneDateTime(m.reached_at) + ': ' +
+        GOAL_NOMINATIVE[idx] + ' cilj (' + m.goal.toLocaleString('sl-SI') + ') dosežen.';
+      labelContainer.appendChild(label);
+    });
+  }
+
+  function loadCounter(){
+    fetch(DATA + '/count.json')
+      .then(function(r){ return r.json(); })
+      .then(function(data){ renderCounter(data.count, data.petition_started_at, data.milestones); })
+      .catch(function(){ /* leave counter at 0 on network error */ });
+  }
+
+  loadCounter();
+
+  /* ---------- SPREAD / SHARE LINK ---------- */
+
+  var petitionUrlInput = document.getElementById('petitionUrl');
+  petitionUrlInput.value = location.href;
+
+  var copyUrlBtn = document.getElementById('copyUrlBtn');
+  copyUrlBtn.addEventListener('click', function(){
+    function showCopied(){
+      copyUrlBtn.textContent = 'Kopirano!';
+      setTimeout(function(){ copyUrlBtn.textContent = 'Kopiraj'; }, 1500);
+    }
+    function fallbackCopy(){
+      petitionUrlInput.select();
+      document.execCommand('copy');
+      showCopied();
+    }
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(petitionUrlInput.value).then(showCopied).catch(fallbackCopy);
+    }else{
+      fallbackCopy();
+    }
+  });
+
+  /* ---------- SHARE GRAPHICS ---------- */
+
+  var images = [
+    { file: 'public/mijic-sramota.jpg', label: 'Sramota' },
+    { file: 'public/mijic-katastrofa.jpg', label: 'Katastrofa' },
+    { file: 'public/mijic-goljufija.jpg', label: 'Goljufija' },
+    { file: 'public/mijic-prevara.jpg', label: 'Prevara' },
+    { file: 'public/boris-mijič-odstop-1.jpg', label: 'grafika 1' },
+    { file: 'public/boris-mijič-odstop-2.jpg', label: 'grafika 2' },
+    { file: 'public/boris-mijič-odstop-3.jpg', label: 'grafika 3' },
+    { file: 'public/boris-mijič-odstop-4.jpg', label: 'grafika 4' },
+    { file: 'public/boris-mijič-odstop-5.jpg', label: 'grafika 5' },
+    { file: 'public/boris-mijič-odstop-6.jpg', label: 'grafika 6' },
+    { file: 'public/boris-mijič-odstop-7.jpg', label: 'grafika 7' },
+    { file: 'public/boris-mijič-odstop-8.jpg', label: 'grafika 8' },
+    { file: 'public/boris-mijič-odstop-9.jpg', label: 'grafika 9' },
+    { file: 'public/boris-mijič-odstop-10.jpg', label: 'grafika 10' },
+    { file: 'public/boris-mijič-odstop-11.jpg', label: 'grafika 11' },
+    { file: 'public/boris-mijič-odstop-12.jpg', label: 'grafika 12' },
+    { file: 'public/boris-mijič-odstop-13.jpg', label: 'grafika 13' },
+    { file: 'public/boris-mijič-odstop-14.jpg', label: 'grafika 14' }
+  ];
+
+  var shareGrid = document.getElementById('shareGrid');
+  images.forEach(function(img){
+    var item = document.createElement('div');
+    item.className = 'share-item';
+
+    var image = document.createElement('img');
+    image.src = img.file;
+    image.alt = 'Mijič ' + img.label;
+    item.appendChild(image);
+
+    var actions = document.createElement('div');
+    actions.className = 'share-actions';
+
+    var downloadLink = document.createElement('a');
+    downloadLink.href = img.file;
+    downloadLink.download = img.file.split('/').pop();
+    downloadLink.textContent = 'Prenesi';
+    actions.appendChild(downloadLink);
+
+    item.appendChild(actions);
+    shareGrid.appendChild(item);
+  });
+
+  /* ---------- MESSAGE / COMMENTS ----------
+     The petition is closed: messages are read once from the frozen
+     messages.json (written at freeze time), not fetched live. Moderation
+     happened before the freeze, so withheld items simply are not in the
+     file — there is nothing left to filter here. Still rendered with
+     textContent throughout, since the text is user-submitted. */
+
+  var commentsState = { totalCount: 0, all: [], shown: 0 };
+
+  function loadComments(){
+    commentsState = { totalCount: 0, all: [], shown: 0 };
+    fetch(DATA + '/messages.json')
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        var rows = (data && data.results) || [];
+        commentsState.totalCount = rows.length;
+        commentsState.all = rows;
+        commentsState.shown = Math.min(COMMENTS_PAGE_SIZE, rows.length);
+        renderComments();
+      })
+      .catch(function(){ renderComments(); });
+  }
+
+  function loadMoreComments(){
+    // All messages are already in memory — paging is a slice, not a fetch.
+    commentsState.shown = Math.min(
+      commentsState.shown + COMMENTS_PAGE_SIZE,
+      commentsState.all.length
+    );
+    renderComments();
+  }
+
+  function renderComments(){
+    var list = document.getElementById('commentsList');
+    list.innerHTML = '';
+
+    if(commentsState.all.length === 0){
+      var empty = document.createElement('p');
+      empty.className = 'comments-empty';
+      empty.textContent = 'Bodi prvi_a, ki napiše sporočilo.';
+      list.appendChild(empty);
+      return;
+    }
+
+    commentsState.all.slice(0, commentsState.shown).forEach(function(c, index){
+      var item = document.createElement('div');
+      item.className = 'comment';
+
+      var meta = document.createElement('div');
+      meta.className = 'comment-meta';
+
+      var left = document.createElement('div');
+      left.className = 'comment-left';
+
+      var number = document.createElement('span');
+      number.className = 'comment-number';
+      number.textContent = (commentsState.totalCount - index) + '.'; // newest entry gets the highest number
+      left.appendChild(number);
+
+      meta.appendChild(left);
+
+      var time = document.createElement('span');
+      time.className = 'comment-time';
+      time.textContent = new Date(c.created_at).toLocaleString('sl-SI', { dateStyle:'medium', timeStyle:'short' });
+      meta.appendChild(time);
+
+      item.appendChild(meta);
+
+      var badge = document.createElement('span');
+      badge.className = 'comment-badge';
+      badge.textContent = c.recipient; // textContent — never innerHTML — user-submitted
+      item.appendChild(badge);
+
+      var text = document.createElement('p');
+      text.className = 'comment-text';
+      text.textContent = c.text; // textContent — never innerHTML — for user-submitted text
+      item.appendChild(text);
+
+      list.appendChild(item);
+    });
+
+    if(commentsState.shown < commentsState.all.length){
+      var row = document.createElement('div');
+      row.className = 'load-more-row';
+
+      var loadMoreBtn = document.createElement('button');
+      loadMoreBtn.type = 'button';
+      loadMoreBtn.id = 'loadMoreComments';
+      loadMoreBtn.className = 'btn btn-outline';
+      loadMoreBtn.textContent = 'Naloži več';
+      loadMoreBtn.addEventListener('click', loadMoreComments);
+
+      row.appendChild(loadMoreBtn);
+      list.appendChild(row);
+    }
+  }
+
+  loadComments();
+
+  /* ---------- RECIPIENT CHART ---------- */
+
+  function loadRecipientChart(){
+    fetch(DATA + '/recipient-stats.json')
+      .then(function(r){ return r.json(); })
+      .then(renderRecipientChart)
+      .catch(function(){ renderRecipientChart([]); });
+  }
+
+  function renderRecipientChart(rows){
+    var container = document.getElementById('recipientChartRows');
+    container.innerHTML = '';
+
+    if(!rows || rows.length === 0){
+      var empty = document.createElement('p');
+      empty.className = 'comments-empty';
+      empty.textContent = 'Še ni sporočil za prikaz.';
+      container.appendChild(empty);
+      return;
+    }
+
+    var max = rows.reduce(function(m, row){ return Math.max(m, row.count); }, 0);
+
+    rows.forEach(function(row){
+      var chartRow = document.createElement('div');
+      chartRow.className = 'chart-row';
+
+      var label = document.createElement('span');
+      label.className = 'chart-label';
+      label.textContent = row.recipient; // textContent — recipient can be free-text
+      chartRow.appendChild(label);
+
+      var track = document.createElement('div');
+      track.className = 'chart-bar-track';
+
+      var fill = document.createElement('div');
+      fill.className = 'chart-bar-fill';
+      fill.style.width = (max > 0 ? (row.count / max * 100) : 0) + '%';
+      track.appendChild(fill);
+      chartRow.appendChild(track);
+
+      var count = document.createElement('span');
+      count.className = 'chart-count';
+      count.textContent = row.count;
+      chartRow.appendChild(count);
+
+      container.appendChild(chartRow);
+    });
+  }
+
+  loadRecipientChart();
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tea-ostani-static
+spec:
+  selector:
+    app: tea-ostani-static
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
